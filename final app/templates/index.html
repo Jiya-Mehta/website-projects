@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>A Cars Flask example</h1>
+
+<p>Click on any car brand's name.</p>
+
+<!-- pairs is a list that must be sent here by a route function
+
+     The list will contain 20 pairs: a car brand number, and a
+     brand's name -->
+
+    <ul>
+    {% for pair in pairs %}
+        <li><a href="{{ url_for( 'detail', num=pair[0] ) }}">{{ pair[1] }} </a></li>
+    {% endfor %}
+    </ul>
+
+{% endblock %}
+
+

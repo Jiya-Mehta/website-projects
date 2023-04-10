@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<!-- the full dict for a president is sent here as pres by the route -->
+
+	<h1>{{ cars['Brand'] }}</h1>
+
+	<!-- NOTE the pattern for pointing to a file inside the static folder -->
+	<img class="right" src="{{ url_for('static', filename="images/"+cars['Image']) }}" alt="Car brand Potrait">
+
+	<p>{{ cars['Brand'] }}, the {{ ord }} car of the car in ranking of world, was launched on {{ cars['Year'] }}, with model name {{ cars['Model'] }}. It has fuel type of {{ cars['Engine Type'] }} and it is {{ cars['Company'] }} company.It has a unique selling point that is {{ cars['Selling point'] }} . Price: {{ cars['Price($dollars)'] }} in dollars.
+
+	
+	</p>
+	<p><a href="{{ cars['Wikipedia-entry'] }}">View Wikipedia entry for {{ cars['Brand'] }}.</a></p>
+
+	<!-- NOTE the way to link to a route: Use the function name -->
+	<p><a href="{{ url_for('index') }}">Return to the list</a> to select a different car.</p>
+
+{% endblock %}
+
+
+
